@@ -9,7 +9,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(130deg, rgba(188,1,1,0.85) 10%, rgba(75,0,45,0.9) 120%); /* Fondo degradado */
+    background: linear-gradient(130deg, rgba(9, 131, 119, 0.965) 10%, rgba(75,0,45,0.9) 120%); /* Fondo degradado */
   }
   
   .login-card {
@@ -42,7 +42,7 @@ body {
   }
   
   h1 {
-    color: #8d0808; /* Vino tinto */
+    color: rgba(9, 131, 119, 0.965); /* Vino tinto */
     margin-bottom: 1.5rem;
   }
   
@@ -61,7 +61,7 @@ body {
   } 
   
   .input-icon i {
-    color: #8d0808; /* Vino tinto */
+    color: #098377f6; /* Vino tinto */
     margin-right: 0.5rem;
   }
   
@@ -91,12 +91,12 @@ body {
   }
   
   .forgot-password {
-    color: #8d0808; /* Vino tinto */
+    color: #098377f6; /* Vino tinto */
     text-decoration: none;
   }
   
   .btn-primary {
-    background-color: #8d0808; /* Vino tinto */
+    background-color: #098377f6; /* Vino tinto */
     color: #fff;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -107,7 +107,7 @@ body {
   }
   
   .btn-primary:hover {
-    background-color: #bd2121; /* Color más oscuro para el hover */
+    background-color: #098377f6; /* Color más oscuro para el hover */
   }
   
   .error-message {

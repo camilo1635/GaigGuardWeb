@@ -35,6 +35,6 @@ export class ODSComponent {
 
   // Navegar a un componente específico según el ODS seleccionado
   goToOdsDetail(odsId: number) {
-    this.router.navigate([`/ods/${odsId}`]);
+    this.router.navigate([`main/ODS/${odsId}`]);
   }
 }

@@ -39,6 +39,8 @@ import { ODSComponent } from './app/components/ods/ods.component';
 // // Importa el CentralStatusGuard
  import { CentralStatusGuard } from './app/auth/auth.guard';
  import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { OdsDetailComponent } from './app/components/ods-detail/ods-detail.component';
+
 // import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 // import { EditRidersComponent } from './app/components/edit-riders/edit-riders.component';
 // import { EditarRiderComponent } from './app/components/edit-riders/editar-rider/editar-rider.component';
@@ -54,6 +56,7 @@ const routes: Routes = [
     children: [ 
       { path: '', redirectTo: 'ODS', pathMatch: 'full'},
        { path: 'ODS', component: ODSComponent},
+       { path: 'ODS/:id', component: OdsDetailComponent},
       //  { path: 'PedidosDisponibles/:pedidosDisponiblesID', component: PedidosDetallesComponent},
       //  { path: 'PedidosDisponibles/:pedidosDisponiblesID/asignar', component: AsignarPedidoComponent},
       //  { path: 'PedidosEnProceso', component: PedidosProcesoComponent },
