@@ -1,0 +1,117 @@
+/* Styles for the login component */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+   
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(130deg, rgba(188,1,1,0.85) 10%, rgba(75,0,45,0.9) 120%); /* Fondo degradado */
+  }
+  
+  .login-card {
+    background-color: #f5f5f5; /* Blanco */
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .icon-container {
+    background-color: #fff;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .icon-container img {
+    width: 55px;
+    height: 55px;
+  }
+  
+  h1 {
+    color: #8d0808; /* Vino tinto */
+    margin-bottom: 1.5rem;
+  }
+  
+  .input-group {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+  .input-icon {
+    display: flex;
+    align-items: center;
+    border: 2px solid #ccc;
+    border-radius: 9px;
+    padding: 0.5rem;
+    width: 90%;
+  } 
+  
+  .input-icon i {
+    color: #8d0808; /* Vino tinto */
+    margin-right: 0.5rem;
+  }
+  
+  input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: transparent; /* Aseguramos que el fondo del input sea transparente */
+  }
+  
+  input[type="email"], input[type="password"] {
+    flex: 1;
+  }
+  
+  input::placeholder {
+    color: #999;
+  }
+  
+  .checkbox-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .forgot-password {
+    color: #8d0808; /* Vino tinto */
+    text-decoration: none;
+  }
+  
+  .btn-primary {
+    background-color: #8d0808; /* Vino tinto */
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 70%;
+  }
+  
+  .btn-primary:hover {
+    background-color: #bd2121; /* Color más oscuro para el hover */
+  }
+  
+  .error-message {
+    color: #000000;
+    margin-bottom: 1rem;
+  }
+  
