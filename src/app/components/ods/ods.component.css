@@ -1,0 +1,69 @@
+/* Contenedor principal */
+.ods-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    
+  }
+  
+  /* Título principal */
+  .ods-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  /* Grid para las tarjetas de ODS */
+  .ods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Estilos de las tarjetas */
+  .ods-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    min-height: 150px;
+    cursor: pointer;
+  }
+  
+  /* Efecto de hover sobre las tarjetas */
+  .ods-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.9);
+  }
+  
+  /* Colores específicos para cada ODS */
+  .ods-1 { background-color: #e5243b; }
+  .ods-2 { background-color: #dda63a; }
+  .ods-3 { background-color: #4c9f38; }
+  .ods-4 { background-color: #c5192d; }
+  .ods-5 { background-color: #ff3a21; }
+  .ods-6 { background-color: #26bde2; }
+  .ods-7 { background-color: #fcc30b; }
+  .ods-8 { background-color: #a21942; }
+  .ods-9 { background-color: #fd6925; }
+  .ods-10 { background-color: #dd1367; }
+  .ods-11 { background-color: #fd9d24; }
+  .ods-12 { background-color: #bf8b2e; }
+  .ods-13 { background-color: #3f7e44; }
+  .ods-14 { background-color: #0a97d9; }
+  .ods-15 { background-color: #56c02b; }
+  .ods-16 { background-color: #00689d; }
+  .ods-17 { background-color: #19486a; }
+  
+
+  /* Encabezado dentro de la tarjeta */
+.ods-card h2 {
+    margin: 0;
+    font-size: 1.2em;
+  }

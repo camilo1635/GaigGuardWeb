@@ -26,8 +26,8 @@ export class CentralStatusGuard implements CanActivate {
           this.router.navigate(['/login']);
           return of(false);
         }
-        // Obtenemos el documento de la colección 'centrales'
-        const centralDocRef = doc(this.firestore, `centrales/${user.uid}`);
+        // Obtenemos el documento de la colección 'admins'
+        const centralDocRef = doc(this.firestore, `admins/${user.uid}`);
         return docData(centralDocRef).pipe(
           take(1),  // Solo tomamos un valor
           catchError(() => {
@@ -37,10 +37,10 @@ export class CentralStatusGuard implements CanActivate {
         );
       }),
       map((central: any) => {
-        if (central && central.estado === true) {
+        if (central && central.admin === true) {
           return true;
         } else {
-          this.router.navigate(['/main-empresa']);
+          this.router.navigate(['/main']);
           return false;
         }
       })

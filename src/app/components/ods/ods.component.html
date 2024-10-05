@@ -1,1 +1,9 @@
-<p>ods works!</p>
+<div class="ods-container">
+    <h1 class="ods-title" style="font-weight: bold;">Objetivos de Desarrollo Sostenible (ODS)</h1>
+    <div class="ods-grid">
+      <div *ngFor="let ods of odsList" class="ods-card ods-{{ ods.id }}" (click)="goToOdsDetail(ods.id)">
+        <h2>{{ ods.id }}. {{ ods.title }}</h2>
+      </div>
+    </div>
+  </div>
+  
