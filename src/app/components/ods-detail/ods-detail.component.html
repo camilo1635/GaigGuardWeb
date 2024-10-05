@@ -1,10 +1,26 @@
 <div class="ods-detail-container">
-    <h1>Detalles del ODS {{ odsId }}</h1>
-    <p>Información específica del ODS número {{ odsId }} será mostrada aquí.</p>
-  
-    <!-- Puedes personalizar esta sección con información relevante para cada ODS -->
-    <div class="ods-info">
-      <p>Este es un lugar para mostrar detalles y acciones específicas relacionadas con el ODS {{ odsId }}.</p>
+    <div class="button-group">
+      <button>Nivel 1</button>
+      <button>Nivel 2</button>
+      <button>Nivel 3</button>
     </div>
+  
+    <h2>Detalles del ODS {{ odsId }}</h2>
+  
+    <!-- Mostrar el loading si aún no se ha cargado la información -->
+    <div *ngIf="(items$ | async) as items; else noItems">
+      <!-- Si hay items, mostrar la lista -->
+      <div *ngIf="items.length > 0; else noItems">
+        <div *ngFor="let item of items" class="item-card">
+          <h3>{{ item.palabra }}</h3>
+          <p>{{ item.descripcion }}</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Mostrar mensaje si no hay items -->
+    <ng-template #noItems>
+      <p>No se encontraron items para este ODS.</p>
+    </ng-template>
   </div>
   
