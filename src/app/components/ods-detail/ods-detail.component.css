@@ -1,6 +1,9 @@
 .ods-detail-container {
     padding: 20px;
     text-align: center;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    border: 2px solid black;
   }
   
   .button-group {

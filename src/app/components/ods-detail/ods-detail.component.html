@@ -1,26 +1,29 @@
 <div class="ods-detail-container">
+    <h2> ODS {{ odsId }}: {{ odsNombre }}</h2>
     <div class="button-group">
-      <button>Nivel 1</button>
-      <button>Nivel 2</button>
-      <button>Nivel 3</button>
+        <button (click)="filterItemsByLevel(1)">Nivel 1</button>
+        <button (click)="filterItemsByLevel(2)">Nivel 2</button>
+        <button (click)="filterItemsByLevel(3)">Nivel 3</button>
     </div>
   
-    <h2>Detalles del ODS {{ odsId }}</h2>
+    
   
     <!-- Mostrar el loading si aún no se ha cargado la información -->
-    <div *ngIf="(items$ | async) as items; else noItems">
-      <!-- Si hay items, mostrar la lista -->
-      <div *ngIf="items.length > 0; else noItems">
-        <div *ngFor="let item of items" class="item-card">
+    <div *ngIf="(filteredItems$ | async) as filteredItems; else noItems">
+      <!-- Si hay items, mostrar la lista filtrada -->
+      <div *ngIf="filteredItems.length > 0; else noItems">
+        <div *ngFor="let item of filteredItems" class="item-card">
           <h3>{{ item.palabra }}</h3>
           <p>{{ item.descripcion }}</p>
         </div>
+         <!-- Botón "+" al final de la lista -->
+      <button class="add-button">+</button>
       </div>
     </div>
   
     <!-- Mostrar mensaje si no hay items -->
     <ng-template #noItems>
-      <p>No se encontraron items para este ODS.</p>
+      <p>No se encontraron items para este nivel.</p>
     </ng-template>
   </div>
   

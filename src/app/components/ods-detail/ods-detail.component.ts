@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Firestore, collection, collectionData, query, where, doc, getDocs } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { CommonModule } from '@angular/common'; // Importa CommonModule
 
 interface Item {
   palabra: string;
   descripcion: string;
+  nivel: number;  // Campo de nivel
 }
 
 @Component({
@@ -18,7 +20,10 @@ interface Item {
 })
 export class OdsDetailComponent implements OnInit {
   odsId!: number;
-  items$?: Observable<Item[]>;
+  odsNombre: string = '';  // Nuevo campo para almacenar el nombre del ODS
+  items$?: Observable<Item[]>;  // Datos originales
+  filteredItems$?: Observable<Item[]>;  // Datos filtrados por nivel
+  selectedLevel: number | null = null;  // Nivel seleccionado (1, 2 o 3)
 
   constructor(private route: ActivatedRoute, private firestore: Firestore) {}
 
@@ -45,10 +50,27 @@ export class OdsDetailComponent implements OnInit {
     if (!odsSnapshot.empty) {
       // Si encuentra el documento que coincide con el numeroODS, cargamos su subcolección items
       const odsDoc = odsSnapshot.docs[0];
+      
+      // Guardamos el nombre del ODS
+      this.odsNombre = odsDoc.get('nombre') || 'Nombre no disponible';
+
       const itemsRef = collection(this.firestore, `ODS/${odsDoc.id}/items`);
       this.items$ = collectionData(itemsRef) as Observable<Item[]>;
+
+      // Inicialmente, no hay nivel seleccionado, por lo que no se muestran elementos
+      this.filteredItems$ = of([]);
     } else {
       console.error('No se encontró ningún ODS con el numeroODS correspondiente');
     }
+  }
+
+  // Función para filtrar los items por el nivel seleccionado
+  filterItemsByLevel(level: number): void {
+    this.selectedLevel = level;
+
+    // Filtramos los items por el nivel seleccionado
+    this.filteredItems$ = this.items$?.pipe(
+      map(items => items.filter(item => item.nivel === level))
+    );
   }
 }
