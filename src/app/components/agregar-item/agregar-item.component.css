@@ -62,10 +62,10 @@
   }
 
   .img-preview {
-    width: 150px;   /* Ancho fijo */
-    height: 150px;  /* Alto fijo */
-    object-fit: cover; /* Asegura que la imagen mantenga proporción, pero cubra todo el contenedor */
-    border: 2px solid #ccc; /* Opcional: Agregar un borde */
-    border-radius: 10px; /* Opcional: Borde redondeado */
+    width: 150px;   
+    height: 150px; 
+    object-fit: cover; 
+    border: 2px solid #ccc; 
+    border-radius: 10px; 
   }
   

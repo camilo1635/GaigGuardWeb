@@ -1,7 +1,7 @@
 .navbar-custom {
-    background-color: #098377f6; /* Color vinotinto */
+    background-color: #098377f6; 
     border: 2px solid black;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para el navbar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 .center-img {
     display: flex;
@@ -18,14 +18,14 @@
     left: 0;
     right: 0;
     background: linear-gradient(to right, #098377ca, transparent 50%, transparent 50%, #098377f6);
-    z-index: -1; /* Colocar el fondo difuminado detrás de la imagen */
+    z-index: -1; 
 }
 .img-bordered {
     position: relative;
     z-index: 1;
-    border-radius: 8px; /* Bordes redondeados */
-    background-color: white; /* Fondo blanco detrás de la imagen */
-    padding: 5px; /* Espacio entre la imagen y el borde */
+    border-radius: 8px;
+    background-color: white; 
+    padding: 5px; 
     border: 2px solid black;
     box-shadow: 0 3px 9px rgba(0, 0, 0, 0.9);
 }
@@ -44,24 +44,22 @@ color: #ffffff;
     color: white;
 } 
 
-/* Para colores de fondo */
+
 :host {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Altura mínima de 100% de la ventana */
+    min-height: 100vh; 
   }
   
   .router-content {
-    background-color: #faf6f6; /* Color de fondo azul claro */
+    background-color: #faf6f6; 
     padding: 20px;
-    flex: 1; /* Ocupar el espacio disponible */
+    flex: 1; 
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centrar el contenido verticalmente */
+    justify-content: center; 
   }
 
-
-  
   .notification-icon i {
     margin-right: 5px;
   }

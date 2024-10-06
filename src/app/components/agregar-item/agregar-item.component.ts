@@ -87,7 +87,7 @@ export class AgregarItemComponent implements OnInit {
         this.imagenSeleccionada = null;
         this.imagenURL = null;
   
-        // Mostrar el mensaje de éxito en la consola
+        // Mostrar el mensaje de éxito 
         console.log('El registro ha sido exitoso');
 
       } catch (error) {

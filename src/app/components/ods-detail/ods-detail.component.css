@@ -110,8 +110,8 @@
 .item-image.fixed-size {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Esto hará que la imagen cubra todo el espacio disponible */
-  object-position: center; /* Centra la imagen dentro del contenedor */
+  object-fit: cover; 
+  object-position: center; 
 }
 
 .item-image.fixed-size {
