@@ -17,10 +17,11 @@
           <p>{{ item.descripcion }}</p>
         </div>
          <!-- Botón "+" al final de la lista -->
-      <button class="add-button">+</button>
+      <button class="btn btn-danger" (click)="Agregaritem()">agregar item a este nivel</button>
+      
       </div>
     </div>
-  
+    <button class="btn btn-danger" (click)="volver()">Volver</button>
     <!-- Mostrar mensaje si no hay items -->
     <ng-template #noItems>
       <p>No se encontraron items para este nivel.</p>

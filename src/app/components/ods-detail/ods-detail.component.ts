@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Firestore, collection, collectionData, query, where, doc, getDocs } from '@angular/fire/firestore';
-import { ActivatedRoute } from '@angular/router';
+import {Router, ActivatedRoute } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CommonModule } from '@angular/common'; // Importa CommonModule
+import { RouterModule } from '@angular/router';
 
 interface Item {
   palabra: string;
@@ -16,7 +17,7 @@ interface Item {
   templateUrl: './ods-detail.component.html',
   styleUrls: ['./ods-detail.component.css'],
   standalone: true,
-  imports: [CommonModule]  // Asegúrate de importar CommonModule aquí
+  imports: [CommonModule, RouterModule]  // Asegúrate de importar CommonModule aquí
 })
 export class OdsDetailComponent implements OnInit {
   odsId!: number;
@@ -25,7 +26,7 @@ export class OdsDetailComponent implements OnInit {
   filteredItems$?: Observable<Item[]>;  // Datos filtrados por nivel
   selectedLevel: number | null = null;  // Nivel seleccionado (1, 2 o 3)
 
-  constructor(private route: ActivatedRoute, private firestore: Firestore) {}
+  constructor(private route: ActivatedRoute, private firestore: Firestore, private router: Router) {}
 
   ngOnInit(): void {
     // Obtenemos el ODS id de la ruta
@@ -38,8 +39,6 @@ export class OdsDetailComponent implements OnInit {
   async logOdsCount() {
     const odsRef = collection(this.firestore, 'ODS');
     const odsSnapshot = await getDocs(odsRef);
-
-    console.log(`Hay ${odsSnapshot.size} documentos en la colección ODS`);
   }
 
   // Función para cargar los items del ODS que coincida con el numeroODS
@@ -72,5 +71,11 @@ export class OdsDetailComponent implements OnInit {
     this.filteredItems$ = this.items$?.pipe(
       map(items => items.filter(item => item.nivel === level))
     );
+  }
+  volver(): void {
+    this.router.navigate(['/main']);
+  }
+  Agregaritem(): void {
+    this.router.navigate([`main/ODS/${this.odsId}/agregar/${this.selectedLevel}`]);  // Navega a la ruta con el odsId y nivel
   }
 }

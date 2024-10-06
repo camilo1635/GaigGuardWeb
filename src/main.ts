@@ -40,6 +40,8 @@ import { ODSComponent } from './app/components/ods/ods.component';
  import { CentralStatusGuard } from './app/auth/auth.guard';
  import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { OdsDetailComponent } from './app/components/ods-detail/ods-detail.component';
+import { AgregarItemComponent } from './app/components/agregar-item/agregar-item.component';
+
 
 // import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 // import { EditRidersComponent } from './app/components/edit-riders/edit-riders.component';
@@ -57,6 +59,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'ODS', pathMatch: 'full'},
        { path: 'ODS', component: ODSComponent},
        { path: 'ODS/:id', component: OdsDetailComponent},
+       { path: 'ODS/:id/agregar/:nivel', component: AgregarItemComponent}
       //  { path: 'PedidosDisponibles/:pedidosDisponiblesID', component: PedidosDetallesComponent},
       //  { path: 'PedidosDisponibles/:pedidosDisponiblesID/asignar', component: AsignarPedidoComponent},
       //  { path: 'PedidosEnProceso', component: PedidosProcesoComponent },
