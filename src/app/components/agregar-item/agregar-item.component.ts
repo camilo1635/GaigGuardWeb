@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';  // Para obtener los p
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-agregar-item',
   templateUrl: './agregar-item.component.html',
@@ -19,7 +19,7 @@ export class AgregarItemComponent implements OnInit {
   descripcion: string = '';  // Campo para la descripción
   odsDocId!: string;  // Para almacenar el ID del documento Firestore basado en numeroODS
 
-  constructor(private route: ActivatedRoute, private firestore: Firestore, private router: Router) {}
+  constructor(private route: ActivatedRoute, private firestore: Firestore, private router: Router,private location: Location) {}
 
   ngOnInit(): void {
     // Obtenemos el ODS id y el nivel de los parámetros de la URL
@@ -63,5 +63,8 @@ export class AgregarItemComponent implements OnInit {
     } else {
       console.error('No se puede agregar el ítem porque no se encontró el documento ODS.');
     }
+  }
+  volver(): void {
+    this.location.back();
   }
 }

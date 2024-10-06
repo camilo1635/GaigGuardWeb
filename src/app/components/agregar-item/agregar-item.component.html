@@ -1,19 +1,18 @@
 <div class="agregar-item-container">
     <h2>Agregar Item al ODS {{ odsId }} - Nivel {{ nivel }}</h2>
   
-    <!-- Formulario para ingresar la palabra y descripción -->
-    <div>
+    <div class="form-group">
       <label for="palabra">Palabra:</label>
       <input id="palabra" [(ngModel)]="palabra" placeholder="Ingrese la palabra" />
+    </div>
   
+    <div class="form-group">
       <label for="descripcion">Descripción:</label>
       <input id="descripcion" [(ngModel)]="descripcion" placeholder="Ingrese la descripción" />
     </div>
   
-    <!-- Botón para registrar el nuevo item -->
-    <button class="btn btn-success" (click)="agregarItem()">Registrar</button>
-    
-    <!-- Botón para volver sin registrar -->
-    <button class="btn btn-danger">Cancelar</button>
+    <div class="button-group">
+      <button class="btn btn-success" (click)="agregarItem()">Registrar</button>
+      <button class="btn btn-danger" (click)="volver()">Volver</button>
+    </div>
   </div>
-  

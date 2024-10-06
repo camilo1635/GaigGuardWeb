@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CommonModule } from '@angular/common'; // Importa CommonModule
 import { RouterModule } from '@angular/router';
-
+import { Location } from '@angular/common';
 interface Item {
   palabra: string;
   descripcion: string;
@@ -26,7 +26,7 @@ export class OdsDetailComponent implements OnInit {
   filteredItems$?: Observable<Item[]>;  // Datos filtrados por nivel
   selectedLevel: number | null = null;  // Nivel seleccionado (1, 2 o 3)
 
-  constructor(private route: ActivatedRoute, private firestore: Firestore, private router: Router) {}
+  constructor(private route: ActivatedRoute, private firestore: Firestore, private router: Router,private location: Location) {}
 
   ngOnInit(): void {
     // Obtenemos el ODS id de la ruta
@@ -73,7 +73,7 @@ export class OdsDetailComponent implements OnInit {
     );
   }
   volver(): void {
-    this.router.navigate(['/main']);
+    this.location.back();
   }
   Agregaritem(): void {
     this.router.navigate([`main/ODS/${this.odsId}/agregar/${this.selectedLevel}`]);  // Navega a la ruta con el odsId y nivel
