@@ -3,6 +3,7 @@ export const environment = {
     firebaseConfig: {
         apiKey: "AIzaSyAtyen5M6J0r-iQqA4U-qQnInYZ-jrKXII",
         authDomain: "nasa-space-challenge-a1c0e.firebaseapp.com",
+        databaseURL: "https://nasa-space-challenge-a1c0e-default-rtdb.firebaseio.com",
         projectId: "nasa-space-challenge-a1c0e",
         storageBucket: "nasa-space-challenge-a1c0e.appspot.com",
         messagingSenderId: "964848992105",
