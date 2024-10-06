@@ -29,3 +29,9 @@
       <button class="btn btn-danger" (click)="volver()">Volver</button>
     </div>
   </div>
+
+  <app-alert 
+  *ngIf="showAlert"
+  [message]="alertMessage"
+  [type]="alertType"
+></app-alert>

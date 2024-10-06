@@ -6,13 +6,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { Location } from '@angular/common';
+import { AlertComponent } from '../alert/alert.component';
 
 @Component({
   selector: 'app-agregar-item',
   templateUrl: './agregar-item.component.html',
   styleUrls: ['./agregar-item.component.css'],
   standalone: true, 
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule,AlertComponent],
 })
 export class AgregarItemComponent implements OnInit {
   odsId!: string;
@@ -23,6 +24,9 @@ export class AgregarItemComponent implements OnInit {
   odsDocId!: string;
   imagenSeleccionada: File | null = null;
   imagenURL: string | ArrayBuffer | null = null;
+  alertMessage: string = '';
+  alertType: 'success' | 'error' = 'success';
+  showAlert: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -88,15 +92,27 @@ export class AgregarItemComponent implements OnInit {
         this.imagenURL = null;
   
         // Mostrar el mensaje de éxito 
-        console.log('El registro ha sido exitoso');
+        this.showMessage('Registro exitoso', 'success');
 
       } catch (error) {
+        this.showMessage('Error al subir item', 'error');
         console.error('Error al subir la imagen o agregar el item:', error);
       }
     } else {
       console.error('No se puede agregar el ítem porque no se encontró el documento ODS o no se seleccionó una imagen.');
     }
   }
+
+  showMessage(message: string, type: 'success' | 'error') {
+    this.alertMessage = message;
+    this.alertType = type;
+    this.showAlert = true;
+
+    setTimeout(() => {
+      this.showAlert = false;
+    }, 3000);
+  }
+
   
   volver(): void {
     this.location.back();
