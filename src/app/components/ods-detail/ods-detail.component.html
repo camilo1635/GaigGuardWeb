@@ -1,30 +1,26 @@
 <div class="ods-detail-container">
     <h2> ODS {{ odsId }}: {{ odsNombre }}</h2>
     <div class="button-group">
-        <button (click)="filterItemsByLevel(1)">Nivel 1</button>
-        <button (click)="filterItemsByLevel(2)">Nivel 2</button>
-        <button (click)="filterItemsByLevel(3)">Nivel 3</button>
+      <button (click)="filterItemsByLevel(1)">Nivel 1</button>
+      <button (click)="filterItemsByLevel(2)">Nivel 2</button>
+      <button (click)="filterItemsByLevel(3)">Nivel 3</button>
     </div>
   
-    
-  
-    <!-- Mostrar el loading si aún no se ha cargado la información -->
     <div *ngIf="(filteredItems$ | async) as filteredItems; else noItems">
-      <!-- Si hay items, mostrar la lista filtrada -->
       <div *ngIf="filteredItems.length > 0; else noItems">
         <div *ngFor="let item of filteredItems" class="item-card">
           <h3>{{ item.palabra }}</h3>
           <p>{{ item.descripcion }}</p>
         </div>
-         <!-- Botón "+" al final de la lista -->
-      <button class="btn btn-danger" (click)="Agregaritem()">agregar item a este nivel</button>
-      
       </div>
     </div>
-    <button class="btn btn-danger" (click)="volver()">Volver</button>
-    <!-- Mostrar mensaje si no hay items -->
+  
+    <div class="action-buttons">
+      <button class="btn btn-primary" (click)="Agregaritem()">Agregar item a este nivel</button>
+      <button class="btn btn-secondary" (click)="volver()">Volver</button>
+    </div>
+  
     <ng-template #noItems>
       <p>No se encontraron items para este nivel.</p>
     </ng-template>
   </div>
-  
