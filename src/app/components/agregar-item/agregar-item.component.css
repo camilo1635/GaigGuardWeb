@@ -60,3 +60,12 @@
   .btn:hover {
     opacity: 0.9;
   }
+
+  .img-preview {
+    width: 150px;   /* Ancho fijo */
+    height: 150px;  /* Alto fijo */
+    object-fit: cover; /* Asegura que la imagen mantenga proporción, pero cubra todo el contenedor */
+    border: 2px solid #ccc; /* Opcional: Agregar un borde */
+    border-radius: 10px; /* Opcional: Borde redondeado */
+  }
+  

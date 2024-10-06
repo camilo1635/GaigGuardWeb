@@ -21,11 +21,11 @@
     </div>
   
     <div *ngIf="imagenURL" class="image-preview">
-      <img [src]="imagenURL" alt="Vista previa de la imagen" />
+      <img [src]="imagenURL" class="img-preview" alt="Vista previa de la imagen" />
     </div>
   
     <div class="button-group">
-      <button class="btn btn-success" (click)="agregarItem()" [disabled]="!palabra || !descripcion || !imagenSeleccionada">Registrar</button>
+      <button class="btn btn-success" (click)="agregarItem()" [disabled]="!palabra || !descripcion || !imagenSeleccionada || !linkBio">Registrar </button>
       <button class="btn btn-danger" (click)="volver()">Volver</button>
     </div>
   </div>

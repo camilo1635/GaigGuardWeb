@@ -69,7 +69,7 @@ export class AgregarItemComponent implements OnInit {
         const storageRef = ref(this.storage, imagePath);
         const snapshot = await uploadBytes(storageRef, this.imagenSeleccionada);
         const downloadURL = await getDownloadURL(snapshot.ref);
-
+  
         // Agregar el nuevo item a Firestore
         const odsRef = collection(this.firestore, `ODS/${this.odsDocId}/items`);
         await addDoc(odsRef, {
@@ -79,9 +79,17 @@ export class AgregarItemComponent implements OnInit {
           linkBio: this.linkBio,
           linkimagen: downloadURL
         });
+  
+        // Limpiar los campos del formulario
+        this.palabra = '';
+        this.descripcion = '';
+        this.linkBio = '';
+        this.imagenSeleccionada = null;
+        this.imagenURL = null;
+  
+        // Mostrar el mensaje de éxito en la consola
+        console.log('El registro ha sido exitoso');
 
-        // Redirigir al detalle del ODS
-        this.router.navigate([`/ODS/${this.odsId}`]);
       } catch (error) {
         console.error('Error al subir la imagen o agregar el item:', error);
       }
@@ -89,7 +97,7 @@ export class AgregarItemComponent implements OnInit {
       console.error('No se puede agregar el ítem porque no se encontró el documento ODS o no se seleccionó una imagen.');
     }
   }
-
+  
   volver(): void {
     this.location.back();
   }
