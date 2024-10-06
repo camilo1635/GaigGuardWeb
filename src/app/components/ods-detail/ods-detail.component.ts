@@ -9,7 +9,9 @@ import { Location } from '@angular/common';
 interface Item {
   palabra: string;
   descripcion: string;
-  nivel: number;  // Campo de nivel
+  nivel: number;
+  linkimagen?: string;  
+  linkBio: string;
 }
 
 @Component({

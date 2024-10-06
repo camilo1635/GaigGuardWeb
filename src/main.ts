@@ -8,6 +8,7 @@ import { provideRouter, Routes } from '@angular/router';
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { importProvidersFrom } from '@angular/core';
 import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideStorage, getStorage } from '@angular/fire/storage'; 
 // Importa tus componentes aquí
 import { LoginComponent } from './app/components/login/login.component';
 import { MainComponent } from './app/components/main/main.component';
@@ -82,6 +83,7 @@ bootstrapApplication(AppComponent, {
     provideFirestore(() => getFirestore()),
     provideDatabase(() => getDatabase()),
     provideAuth(() => getAuth()),
+    provideStorage(() => getStorage()),  
     importProvidersFrom(CentralStatusGuard), provideAnimationsAsync()
 
   ]
